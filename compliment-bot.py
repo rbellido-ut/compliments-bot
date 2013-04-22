@@ -34,7 +34,7 @@ twitter = Twitter(auth=OAuth(oauth_token,
 
 
 # grab the first screen name in the first/latest mention
-#print mentioners[0]['entities']['user_mentions'][0]['screen_name']
+#print mentioners[0]['users']['screen_name']
 
 # start loop
 # check if the id of the first mention is different from the previous id
@@ -51,11 +51,11 @@ while True:
 	newid = mentioners[0]['id']
 
 	if (previd != newid):
-		replyto = mentioners[0]['entities']['user_mentions'][0]['screen_name']
-		message = '@%s %s' % replyto, random.choice(compliments)
-		#twitter.statuses.update(status=message)
+		replyto = mentioners[0]['user']['screen_name']
+		message = '@%s %s' % (replyto, random.choice(compliments))
+		twitter.statuses.update(status=message)
 		print message
 		previd = mentioners[0]['id']
 
 	# sleep for 1 minute before continuing again
-	time.sleep(60)
+	time.sleep(60 * 2)
