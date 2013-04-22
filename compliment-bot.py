@@ -25,4 +25,4 @@ twitter = Twitter(auth=OAuth(oauth_token,
 
 mentioners = twitter.statuses.mentions_timeline()
 
-print mentioners[0]['user_mentions']['screen_name']
+print mentioners[0]['entities']['user_mentions'][0]['screen_name']
