@@ -23,6 +23,16 @@ twitter = Twitter(auth=OAuth(oauth_token,
                             )
                 )
 
-mentioners = twitter.statuses.mentions_timeline()
 
-print mentioners[0]['entities']['user_mentions'][0]['screen_name']
+# grab the first screen name in the first/latest mention
+#print mentioners[0]['entities']['user_mentions'][0]['screen_name']
+
+# start loop
+# check if the id of the first mention is different from the current
+# if different:
+#	tweet a random compliment
+# sleep for 5 mins
+
+#while True:
+mentioners = twitter.statuses.mentions_timeline()
+print mentioners[0]['id']
